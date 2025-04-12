@@ -12,14 +12,14 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("ws-chat")
-//                .setAllowedOrigins("*")
-                .setAllowedOrigins("http://localhost:3000") // Allow requests from React app
+                .setAllowedOriginPatterns("*")
+//                .setAllowedOrigins("http://localhost:3000") // Allow requests from React app
                 .withSockJS();
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("topic");
+        registry.enableSimpleBroker("/topic");
         registry.setApplicationDestinationPrefixes("/app");
     }
 }

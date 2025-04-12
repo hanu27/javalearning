@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 @RequestMapping("/cars/v2")
 @Slf4j
-@Tag(name = "Car apis using mongo db connection", description = "here we will get , and insert the car records")
+@Tag(name = "Car apis using hashmap", description = "here we will get , and insert the car records using hashmap")
 public class CarController {
 
     ConcurrentHashMap<Long, Car> carRecords = new ConcurrentHashMap<>();

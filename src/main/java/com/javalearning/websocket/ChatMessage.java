@@ -8,6 +8,11 @@ public class ChatMessage {
     private String sender;
     private MessageType type;
     private String response;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
     // Getters and setters
 }
 

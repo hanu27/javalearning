@@ -30,16 +30,15 @@ public class ChatController {
         return chatMessage;
     }
 
-//    @Autowired
-//    private SimpMessagingTemplate messagingTemplate;
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
 //
 //
-//    @MessageMapping("/chat.send2")
-//    public void sendMessage2(@Payload ChatMessage message) {
-//        log.info("Received message sendMessage2: {}", message);
-//        String reply = "Reply to: " + message;
-//
-//        // Send the reply to a specific topic
-//        messagingTemplate.convertAndSend("/topic/public", message);
-//    }
+    @MessageMapping("/chat.p2p")
+    public void sendMessage2(@Payload ChatMessage message) {
+        // Send the reply to a specific topic
+        log.info("p2p message {}",message);
+        messagingTemplate.setUserDestinationPrefix("/topic/");
+        messagingTemplate.convertAndSendToUser(message.getUserName(),"/ping", message);
+    }
 }

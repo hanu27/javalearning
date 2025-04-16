@@ -6,6 +6,7 @@ import lombok.Data;
 public class ChatMessage {
     private String content;
     private String sender;
+    private String userName;
     private MessageType type;
     private String response;
 
@@ -18,6 +19,7 @@ public class ChatMessage {
 
 
 enum MessageType{
-    CHAT;
+    CHAT,
+    REGISTER;
 }
 
